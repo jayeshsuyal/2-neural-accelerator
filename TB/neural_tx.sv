@@ -2,7 +2,6 @@
 `define NEURAL_TX_SV
 
 class neural_tx extends uvm_sequence_item;
-`uvm_object_utils(neural_tx)
 
     function new(string name = "neural_tx");
         super.new(name);
@@ -17,9 +16,15 @@ class neural_tx extends uvm_sequence_item;
         foreach (input_data[i]) input_data[i] inside {[-128:127]};
     }
 
-    constraint not_all_zero_c{
-        input_data != `{default: 0};
+   constraint not_all_zero_c{
+     (input_data [0] != 0) || (input_data [1] != 0) || (input_data [2] != 0) || (input_data [1] != 0); 
     }
-    
+
+  `uvm_object_utils_begin(neural_tx)
+  `uvm_field_sarray_int (input_data, UVM_ALL_ON)
+        `uvm_field_sarray_int(expected_output, UVM_ALL_ON)
+        `uvm_field_sarray_int(actual_output, UVM_ALL_ON)
+        `uvm_field_int(compare_result, UVM_ALL_ON)
+    `uvm_object_utils_end    
 endclass
 `endif
