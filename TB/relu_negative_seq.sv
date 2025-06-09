@@ -1,5 +1,6 @@
 `ifndef RELU_NEGATIVE_SEQ_SV
 `define RELU_NEGATIVE_SEQ_SV
+`include "neural_base_seq.sv"
 
 class relu_negative_seq extends neural_base_seq;
 `uvm_object_utils(relu_negative_seq)
@@ -16,9 +17,7 @@ class relu_negative_seq extends neural_base_seq;
             foreach (t.input_data[i]) t.input_data[i] < 0 ;
         });
         finish_item(t);
-
-        `uvm_info(get_name(), "ReLu Negative sequence Executed", UVM_MEDIUM);
+        `uvm_info(get_name(), "ReLu Negative sequence Executed", UVM_MEDIUM);        
     endtask     
 endclass
-
 `endif

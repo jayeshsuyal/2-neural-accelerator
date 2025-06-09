@@ -1,8 +1,9 @@
 `ifndef EDGE_CASE_SEQ_SV
 `define EDGE_CASE_SEQ_SV
+`include "neural_base_seq.sv"
 
 class edge_case_seq extends neural_base_seq;
-`uvm_object_utils(edge_class_seq)
+  `uvm_object_utils(edge_case_seq)
 
     function new(string name = "edge_case_seq");
         super.new(name);
