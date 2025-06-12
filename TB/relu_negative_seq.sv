@@ -14,7 +14,7 @@ class relu_negative_seq extends neural_base_seq;
         start_item(t);
         
         assert (t.randomize() with {
-            foreach (t.input_data[i]) t.input_data[i] < 0 ;
+            foreach (t.input_data[i]) t.input_data[i] < 0;
         });
         finish_item(t);
         `uvm_info(get_name(), "ReLu Negative sequence Executed", UVM_MEDIUM);        

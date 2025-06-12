@@ -7,7 +7,7 @@ module neural_net_2layer (
     output logic signed [15:0]     output_data[2]   // 2 output neurons
 );
 
-    // === Hardcoded Weights and Biases ===
+    // Hardcoded Weights and Biases
 
     // Layer 1 Weights: 4x4 matrix (Input → Hidden Layer)
     logic signed [7:0] W1[4][4] = '{
@@ -36,19 +36,19 @@ module neural_net_2layer (
     logic signed [15:0] layer2_out[2];
     logic               processing;
 
-    // === ReLU Activation Function ===
+    // ReLU Activation Function
     function logic signed [15:0] relu(input logic signed [15:0] val);
         return (val > 0) ? val : 16'sd0;
     endfunction
 
-    // === Main Inference Logic ===
+    // Main Inference Logic
     always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
             output_valid <= 0;
         end else begin
             output_valid <= 0;
             if (input_valid) begin
-                // --- Layer 1: Input × W1 + B1, then ReLU ---
+                // Layer 1: Input × W1 + B1, then ReLU 
                 for (int i = 0; i < 4; i++) begin
                     layer1_out[i] = B1[i];
                     for (int j = 0; j < 4; j++) begin
@@ -57,7 +57,7 @@ module neural_net_2layer (
                     layer1_out[i] = relu(layer1_out[i]);
                 end
 
-                // --- Layer 2: Hidden × W2 + B2 (No activation) ---
+                // Layer 2: Hidden × W2 + B2 (No activation)
                 for (int i = 0; i < 2; i++) begin
                     layer2_out[i] = B2[i];
                     for (int j = 0; j < 4; j++) begin

@@ -54,5 +54,4 @@ class neural_drv extends uvm_driver #(neural_tx);
     endtask
 
 endclass: neural_drv
-
 `endif

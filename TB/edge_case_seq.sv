@@ -24,3 +24,10 @@ class edge_case_seq extends neural_base_seq;
 endclass
 
 `endif
+
+/*
+
+$random // repeat
+$urandom // no repeat
+$crandom // only used for bits not ints
+*/

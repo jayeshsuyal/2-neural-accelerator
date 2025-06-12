@@ -4,7 +4,7 @@
 
 This project implements a UVM-based functional verification environment for a fixed-point RTL design of a simple 2-layer neural inference accelerator using hardcoded weights, MAC (Multiply-Accumulate) units, and ReLU activation. The goal is to validate the correctness of the inference pipeline for basic matrix-vector operations.
 
-## 🔧 Design Summary
+## Design Summary
 
 - **Inputs**: 4 signed 8-bit neurons
 - **Hidden Layer**: 4 neurons, ReLU activation
@@ -48,7 +48,7 @@ This project implements a UVM-based functional verification environment for a fi
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 Simulation is supported using **Synopsys VCS** or **any simulator with UVM support**.
 
